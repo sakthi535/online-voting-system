@@ -2,7 +2,7 @@
 *{
 	margin:0;
 	padding:0;
-	box: border-box;
+	box-sizing: border-box;
 	font-family:sans-serif;
 }
 
@@ -30,7 +30,7 @@ h1::before{
 	bottom: -10px;
 	left: 50%;
 	transform: translateX(-50%);
-	animation: animate 4s linear;
+	animation: animate 4s linear infinite;
 }
 @keyframes animate{
 	0%{
@@ -77,28 +77,30 @@ label{
 label:hover{
 	color: black;
 }
-.photo-gallery{
-	width: 90%;
+.party-candidates{
+	width: 60%;
 	margin: auto;
 	display: grid;
-	grid-template-columns: repeaat(4, 1fr);
-	grid-gap: 220px;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 30px;
 }
 .pic{
 	position: relative;
-	height: 220px;
+	height: 230px;
 	border-radius: 10px;
 	box-shadow: 3px 3px 5px lightgray;
+	cursor: pointer;
 }
 
 .pic img{
 	width: 100%;
-	height: 100px;
+	height: 100%;
 	border-radius: 10px;
 }
 
+
 .pic::before{
-	content: "PHOTO GALLERY";
+	content: "PARTIES AND CANDIDATES";
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -106,8 +108,70 @@ label:hover{
 	color: white;
 	font-size: 22px;
 	font-weight: bold;
-	width: 100px;
+	width: 80%;
 	opacity: 0;
 	transition: .3s;
 	transition-delay: .2s;
+}
+
+.pic::after{
+	content: "";
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	border-radius: 10px;
+	height: 0;
+	background-color: rgba(0,0,0,.4);
+	transition: .3s;
+}
+
+.pic:hover::after{
+	height: 100%;
+}
+.pic:hover::before{
+	margin-top: 0;
+	opacity: 1;
+}
+#check1:checked ~ .container .party-candidates .pic{
+	opacity: 1;
+	transform: scale(1);
+	position: relative;
+	transition: .5s;
+}
+#check2:checked ~ .container .party-candidates .ysrcp{
+	transform: scale(1);
+	opacity: 1;
+	position: relative;
+}
+#check2:checked ~ .container .party-candidates .tdp,
+#check2:checked ~ .container .party-candidates .janasena{
+	opacity: 0;
+	transform: scale(0);
+	position: absolute;
+	transition: 0s;
+}
+#check3:checked ~ .container .party-candidates .tdp{
+	transform: scale(1);
+	opacity: 1;
+	position: relative;
+}
+#check3:checked ~ .container .party-candidates .ysrcp,
+#check3:checked ~ .container .party-candidates .janasena{
+	opacity: 0;
+	transform: scale(0);
+	position: absolute;
+	transition: 0s;
+}
+#check4:checked ~ .container .party-candidates .janasena{
+	transform: scale(1);
+	opacity: 1;
+	position: relative;
+}
+#check4:checked ~ .container .party-candidates .ysrcp,
+#check4:checked ~ .container .party-candidates .tdp{
+	opacity: 0;
+	transform: scale(0);
+	position: absolute;
+	transition: 0s;
 }
