@@ -3,9 +3,6 @@
 	padding:0;
 	font-family:sans-serif;
 }
-h1{
-	color: black;
-}
 .card{
 	color: white;
 	width:100%;
@@ -208,4 +205,13 @@ body {
 
 .form__link:hover {
     text-decoration: underline;
+}
+#aadharError{
+    display: none;
+}
+#mobileError{
+    display: none;
+}
+#passwdError{
+    display: none;
 }
