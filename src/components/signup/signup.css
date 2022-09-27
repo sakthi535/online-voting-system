@@ -212,6 +212,12 @@ body {
 #mobileError{
     display: none;
 }
-#passwdError{
+#mailError{
+    display: none;
+}
+#passwdError1{
+    display: none;
+}
+#passwdError2{
     display: none;
 }
